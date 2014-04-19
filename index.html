@@ -26,13 +26,7 @@
                  </nav>
       </div><!-- end header -->
       
-<div id="messageDiv">
-        <div ng-repeat="msg in messages">
-            <strong>{{msg.from}}: </strong><em>{{msg.body}}</em>
-        </div>
-    </div>
-    <input type="text" ng-model="name" placeholder="Name.." ng-disabled="disableName" />
-    <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message..." />
+
     
     <div class="wrapper">
 
@@ -45,7 +39,15 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <p>PhuongNM4</p>
+        <div class="container">
+          <div id="messageDiv">
+        <div ng-repeat="msg in messages">
+            <strong>{{msg.from}}: </strong><em>{{msg.body}}</em>
+        </div>
+    </div>
+    <input type="text" ng-model="name" placeholder="Name.." ng-disabled="disableName" />
+    <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message..." />
+        </div>
       </section>
 
     </div>
