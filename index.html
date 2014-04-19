@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Firebase 1</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+    <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
+</head>
+
+<body ng-controller="MyController">
+
+    <h1>Simple Chat app by PhuongNM4</h1>
+    <div id="messageDiv">
+        <div ng-repeat="msg in messages">
+            <strong>{{msg.from}}: </strong><em>{{msg.body}}</em>
+        </div>
+    </div>
+    <input type="text" ng-model="name" placeholder="Name.." ng-disabled="disableName" />
+    <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message..." />
+
+    <!--Script Tags-->
+
+    <script type="text/javascript">
+        var app = angular.module('myApp', ['firebase']);
+
+        function MyController($scope, $firebase) {
+            var proxy = new Firebase("https://fdn-phuongnm4.firebaseio.com/");
+
+            $scope.disableName = false;
+            $scope.messages = $firebase(proxy);
+            $scope.addMessage = function (e) {
+                if (e.keyCode != 13) return;
+
+                if (!$scope.disableName) {
+                    $scope.disableName = true;
+                }
+                $scope.messages.$add({ from: $scope.name, body: $scope.msg });
+                $scope.msg = "";
+            };
+        }
+    </script>
+</body>
+</html>
