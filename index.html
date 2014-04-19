@@ -35,6 +35,7 @@
             font-size: smaller;
                     }
                     .textbox{
+                        border-width: 1px;
                         display: inline-block;
                         border-radius: .5em;
                         outline:none;
@@ -47,7 +48,7 @@
 <body ng-controller="MyController">
     <div id="header">
     <div class="centerblock">
-       <h1>SimpleChatApp</h1>
+       <h1>Simple Chat App</h1>
                 <p>fdn-phuongnm4</p>
                 </div>
     </div><!-- end header -->
@@ -105,6 +106,10 @@
             }
             return input;
         }
+        
+        $(document).ready(
+            $('.textbox').first().focus();
+            )
     </script>
 </body>
 </html>
