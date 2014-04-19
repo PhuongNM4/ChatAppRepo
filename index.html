@@ -62,8 +62,8 @@
                             <strong>{{msg.from}}: </strong><em>{{msg.body}}</em><span class="smalltext">at <em>{{msg.timestamp}}</em></span>
                             <hr>
                         </div>
-                        <input type="text" ng-model="name" placeholder="Name.." ng-disabled="disableName" />
-                        <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message..." />
+                        <input type="text" ng-model="name" placeholder="Name.." ng-disabled="disableName" class="textbox"/>
+                        <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message..."  class="textbox"/>
                     </div>
                 </div>
 
