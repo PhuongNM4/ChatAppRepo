@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+    <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
     <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -17,16 +20,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   </head>
-  <body>
+  <body ng-controller="MyController">
       <div id="header">
         <nav>
-          <li class="fork"><a href="https://github.com/PhuongNM4/ChatAppRepo">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/PhuongNM4/ChatAppRepo/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/PhuongNM4/ChatAppRepo/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
+                 </nav>
       </div><!-- end header -->
-
+      
+<div id="messageDiv">
+        <div ng-repeat="msg in messages">
+            <strong>{{msg.from}}: </strong><em>{{msg.body}}</em>
+        </div>
+    </div>
+    <input type="text" ng-model="name" placeholder="Name.." ng-disabled="disableName" />
+    <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message..." />
+    
     <div class="wrapper">
 
       <section>
@@ -43,6 +50,24 @@
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+      <script type="text/javascript">
+        var app = angular.module('myApp', ['firebase']);
+
+        function MyController($scope, $firebase) {
+            var proxy = new Firebase("https://fdn-phuongnm4.firebaseio.com/");
+
+            $scope.disableName = false;
+            $scope.messages = $firebase(proxy);
+            $scope.addMessage = function (e) {
+                if (e.keyCode != 13) return;
+
+                if (!$scope.disableName) {
+                    $scope.disableName = true;
+                }
+                $scope.messages.$add({ from: $scope.name, body: $scope.msg });
+                $scope.msg = "";
+            };
+        }
+    </script>
   </body>
 </html>
