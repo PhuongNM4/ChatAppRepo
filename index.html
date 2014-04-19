@@ -6,114 +6,115 @@
     <title>SimpleChatApp by PhuongNM4</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/simple-login/1.3.2/firebase-simple-login.js"></script>
     <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
     <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
+
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
     <style type="text/css">
         .smalltext {
             font-size: smaller;
             display: inline-block;
             margin-left: 4em;
         }
-        .centerblock{
-        width: 50%;
-        margin: 1em auto;
+
+        .centerblock {
+            width: 50%;
+            margin: 1em auto;
         }
-        .newfooter{
+
+        .newfooter {
             display: block;
             width: 80%;
             margin: 2em auto;
             font-size: smaller;
-                    }
-                    .textbox{
-                        border:1px solid  #434343;
-                        display: block;
-                        border-radius: .5em;
-                        outline:none;
-                        background-color: inherit;
-                        color: inherit;
-                        padding: .3em 1em;
-                        font-size: 90%;
-                        margin: .3em 1em;
-                    }
-                    textarea{
-                      width: 245px;
-                        vertical-align: top;
-                        word-wrap: break-word;
-                        height: 145px;
-                        resize:none;
-                    }
-                    .messagepanel{
-                        position: fixed;
-                        top:7em;
-                        right:.5em;
-                        width: 300px;
-                        height: 200px;
-                        z-index: 999;
-                       background: url("images/nav-bg.gif") repeat scroll 0 0 #353535;
-                       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-                        border: 2px solid #434343;
-                        border-radius: .5em;
-                        opacity: 0.8;
-                    }
+        }
+
+        .textbox {
+            border: 1px solid #434343;
+            display: block;
+            border-radius: .5em;
+            outline: none;
+            background-color: inherit;
+            color: inherit;
+            padding: .3em 1em;
+            font-size: 90%;
+            margin: .3em 1em;
+        }
+
+        textarea {
+            width: 245px;
+            vertical-align: top;
+            word-wrap: break-word;
+            height: 145px;
+            resize: none;
+        }
+
+        .messagepanel {
+            position: fixed;
+            top: 7em;
+            right: .5em;
+            width: 300px;
+            height: 200px;
+            z-index: 999;
+            background: url("images/nav-bg.gif") repeat scroll 0 0 #353535;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+            border: 2px solid #434343;
+            border-radius: .5em;
+            opacity: 0.8;
+        }
     </style>
 </head>
+
 <body ng-controller="MyController">
     <div id="header">
-    <div class="centerblock">
-       <h1>Simple Chat App</h1>
-                <p>fdn-phuongnm4</p>
-                </div>
-    </div><!-- end header -->
-
+        <div class="centerblock">
+            <h1>Simple Chat App</h1>
+            <p>fdn-phuongnm4</p>
+        </div>
+    </div>
 
     <div class="wrapper">
         <section>
-           <div class="messagepanel">
-                <input type="text" ng-model="name" placeholder="Type your name here..." ng-disabled="disableName" class="textbox"/>
-                <textarea rows="4" type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Type message and Enter..."  class="textbox"></textarea>
-           </div>
-                <div class="container">
-                    <div id="messageDiv">
-                    
+            <div class="messagepanel">
+                <input type="text" ng-model="name" placeholder="Type your name here..." ng-disabled="disableName" class="textbox" />
+                <textarea rows="4" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Type message and Enter..." class="textbox"></textarea>
+            </div>
+            <div class="container">
+                <div id="messageDiv">
+                    <hr>
+                    <div ng-repeat="msg in messages | orderBy:predicate:reverse">
+                        <strong>{{msg.from}}: </strong><em>{{msg.body}}</em><span class="smalltext">at [..<em>{{msg.timestamp}}</em>..]</span>
                         <hr>
-                        <div ng-repeat="msg in messages | orderBy:predicate:reverse" >
-                            <strong>{{msg.from}}: </strong><em>{{msg.body}}</em><span class="smalltext">at [..<em>{{msg.timestamp}}</em>..]</span>
-                            <hr>
-                        </div>
-                       
                     </div>
                 </div>
+            </div>
 
-              <div class="newfooter">
-                <span class="credits left">Project maintained by <a href="#">PhuongNM4</a></span> &mdash; 
+            <div class="newfooter">
+                <span class="credits left">Project maintained by <a href="#">PhuongNM4</a></span> &mdash;
                 <span class="credits right">Hosted on <a href="https://github.com/">GitHub Pages</a></span>
-          </div>
+            </div>
         </section>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     <script type="text/javascript">
-       var app = angular.module('myApp', ['firebase']);
+        var app = angular.module('myApp', ['firebase']);
 
-        app.filter('reverse', function() {
-          return function(items) {
-            return items.slice().reverse();
-          };
+        app.filter('reverse', function () {
+            return function (items) {
+                return items.slice().reverse();
+            };
         });
 
         function MyController($scope, $firebase) {
             var proxy = new Firebase("https://fdn-phuongnm4.firebaseio.com/");
 
-            $scope.predicate  = 'timestamp';
+            $scope.predicate = 'timestamp';
             $scope.disableName = false;
             $scope.messages = $firebase(proxy);
             $scope.addMessage = function (e) {
@@ -139,8 +140,6 @@
             }
             return input;
         }
-        
-        
     </script>
 </body>
 </html>
