@@ -36,13 +36,13 @@
                     }
                     .textbox{
                         border-width: 1px;
-                        display: inline-block;
+                        display: block;
                         border-radius: .5em;
                         outline:none;
                         background-color: inherit;
                         color: inherit;
                         padding: .3em 1em;
-                        width: 95%;
+                        width: inherit;
                         margin: .3em auto;
                     }
                     .messagepanel{
@@ -72,7 +72,7 @@
         <section>
            <div class="messagepanel">
                 <input type="text" ng-model="name" placeholder="Type your name here..." ng-disabled="disableName" class="textbox"/>
-                        <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Type message and press Enter to send..."  class="textbox"/>
+                <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Type message and Enter..."  class="textbox"/>
            </div>
                 <div class="container">
                     <div id="messageDiv">
