@@ -107,10 +107,6 @@
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     <script type="text/javascript">
     
-        $scope.$on('$viewContentLoaded', function(){
-            $('.container').emotions();
-        });
-    
         var app = angular.module('myApp', ['firebase']);
 
         function MyController($scope, $firebase) {
@@ -128,6 +124,10 @@
                 $scope.messages.$add({ from: $scope.name, body: $scope.msg, timestamp: $scope.timestamp });
                 $scope.msg = "";
             };
+            
+            $scope.$on('$viewContentLoaded', function(){
+                 $('.container').emotions();
+            });
         }
 
         function GetDateTimeNow() {
