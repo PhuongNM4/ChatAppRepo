@@ -1,71 +1,71 @@
 .emotions {
     width: 14px;
     height: 14px;
-    background: url("emotions/blank.gif") no-repeat center center;
+    background: url("../images/emotions/blank.gif") no-repeat center center;
     display: inline-block;
     vertical-align: top;
 }
 
 .emo-angel {
-    background: url("emotions/fb/angel.gif");
+    background: url("../images/emotions/angel.gif");
     width: 16px;
     height: 15px;
 }
 
 .emo-confused {
-    background: url("emotions/fb/confused.gif");
+    background: url("../images/emotions/confused.gif");
 }
 
 .emo-devil {
-    background: url("emotions/fb/devil.gif");
+    background: url("../images/emotions/devil.gif");
     height: 15px;
 }
 
 .emo-grin {
-    background: url("emotions/fb/grin.gif");
+    background: url("../images/emotions/grin.gif");
 }
 
 .emo-heart {
-    background: url("emotions/fb/heart.gif");
+    background: url("../images/emotions/heart.gif");
     width: 15px;
 }
 
 .emo-kiss {
-    background: url("emotions/fb/kiss.gif");
+    background: url("../images/emotions/kiss.gif");
 }
 
 .emo-smile {
-    background: url("emotions/fb/smile.gif");
+    background: url("../images/emotions/smile.gif");
 }
 
 .emo-sunglasses {
-    background: url("emotions/fb/sunglasses.gif");
+    background: url("../images/emotions/sunglasses.gif");
 }
 
 .emo-unsure {
-    background: url("emotions/fb/unsure.gif");
+    background: url("../images/emotions/unsure.gif");
 }
 
 .emo-wink {
-    background: url("emotions/fb/wink.gif");
+    background: url("../images/emotions/wink.gif");
 }
 
 .emo-cry {
-    background: url("emotions/fb/cry.gif");
+    background: url("../images/emotions/cry.gif");
 }
 
 .emo-glasses {
-    background: url("emotions/fb/glasses.gif");
+    background: url("../images/emotions/glasses.gif");
 }
 
 .emo-grumpy {
-    background: url("emotions/fb/grumpy.gif");
+    background: url("../images/emotions/grumpy.gif");
 }
 
 .emo-tongue {
-    background: url("emotions/fb/tongue.gif");
+    background: url("../images/emotions/tongue.gif");
 }
 
 .emo-frown {
-    background: url("emotions/fb/frown.gif");
+    background: url("../images/emotions/frown.gif");
 }
