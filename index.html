@@ -105,12 +105,6 @@
     <script type="text/javascript">
         var app = angular.module('myApp', ['firebase']);
 
-        app.filter('reverse', function () {
-            return function (items) {
-                return items.slice().reverse();
-            };
-        });
-
         function MyController($scope, $firebase) {
             var proxy = new Firebase("https://fdn-phuongnm4.firebaseio.com/");
 
