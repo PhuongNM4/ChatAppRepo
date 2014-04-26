@@ -6,12 +6,15 @@
     <title>SimpleChatApp by PhuongNM4</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/jquery.emotions.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/simple-login/1.3.2/firebase-simple-login.js"></script>
     <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
+    
+    <script src="javascripts/jquery.emotions.js"></script>
     <script src="javascripts/respond.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -103,6 +106,11 @@
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     <script type="text/javascript">
+    
+        $scope.$on('$viewContentLoaded', function(){
+            $('.container').emotions();
+        });
+    
         var app = angular.module('myApp', ['firebase']);
 
         function MyController($scope, $firebase) {
