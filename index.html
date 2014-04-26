@@ -9,10 +9,9 @@
     <link rel="stylesheet" href="stylesheets/jquery.emotions.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
-    
     
     <script src="javascripts/respond.js"></script>
     <script src="javascripts/jquery.emotions.js"></script>
@@ -92,7 +91,7 @@
                 <div id="messageDiv">
                     <hr>
                     <div ng-repeat="msg in messages | orderBy:'timestamp':true">
-                        <strong>{{msg.from}}: </strong><em>{{msg.body}}</em><span class="smalltext">at [..<em>{{msg.timestamp}}</em>..]</span>
+                        <strong>{{msg.from}}: </strong><em class='messageText'>{{msg.body}}</em><span class="smalltext">at [..<em>{{msg.timestamp}}</em>..]</span>
                         <hr>
                     </div>
                 </div>
@@ -107,7 +106,7 @@
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     <script type="text/javascript">
         angular.element(document).ready(function () {
-                   $('.container').emotions();
+                   $('.messageText').emotions();
              });
         var app = angular.module('myApp', ['firebase']);
 
