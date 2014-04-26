@@ -110,6 +110,10 @@
         var app = angular.module('myApp', ['firebase']);
 
         function MyController($scope, $firebase) {
+             angular.element(document).ready(function () {
+                 debugger
+                $('.container').emotions();
+             });
             var proxy = new Firebase("https://fdn-phuongnm4.firebaseio.com/");
 
             $scope.disableName = false;
@@ -125,9 +129,7 @@
                 $scope.msg = "";
             };
             
-            $scope.$on('$viewContentLoaded', function(){
-                 $('.container').emotions();
-            });
+          
         }
 
         function GetDateTimeNow() {
