@@ -15,7 +15,7 @@
     
     
     <script src="javascripts/respond.js"></script>
-    
+    <script src="javascripts/jquery.emotions.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -106,13 +106,13 @@
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     <script type="text/javascript">
-    
+        angular.element(document).ready(function () {
+                   $('.container').emotions();
+             });
         var app = angular.module('myApp', ['firebase']);
 
         function MyController($scope, $firebase) {
-             angular.element(document).ready(function () {
-                   $('.container').emotions();
-             });
+             
             var proxy = new Firebase("https://fdn-phuongnm4.firebaseio.com/");
 
             $scope.disableName = false;
