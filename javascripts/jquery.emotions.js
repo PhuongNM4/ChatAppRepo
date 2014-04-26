@@ -90,6 +90,9 @@
 
     $.fn.emotions = function (action, options) {
         this.each(function () {
+            
+            debugger
+            
             var el = $(this);
             el.html($.emotions(el.html()));
         });
