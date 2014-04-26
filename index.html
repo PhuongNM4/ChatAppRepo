@@ -105,10 +105,11 @@
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     <script type="text/javascript">
+        
+        var app = angular.module('myApp', ['firebase']);
         angular.element(document).ready(function () {
                    $('.messageText').emotions();
              });
-        var app = angular.module('myApp', ['firebase']);
 
         function MyController($scope, $firebase) {
              
