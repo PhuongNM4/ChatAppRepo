@@ -38,7 +38,7 @@
                     <hr>
                     <div ng-repeat="msg in messages | orderBy:'timestamp':true">
                         <strong>{{msg.from}}: </strong>
-                        <em class='messageText' ng-bind-html-unsafe="msg.body"></em>
+                        <em class='messageText' ng-bind-html-unsafe="msg.body">{{msg.body}}</em>
                         <span class="smalltext">at [..<em>{{msg.timestamp}}</em>..]</span>
                         <hr>
                     </div>
