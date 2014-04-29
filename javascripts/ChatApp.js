@@ -11,7 +11,11 @@ function MyController($scope, $firebase) {
 
     $scope.disableName = false;
     $scope.messages = $firebase(proxy);
-    $scope.messages = RevertArray($scope.messages);
+    
+    var arrayIn = $.map($scope.messages, function(value, index) {
+        return [value];
+    });
+
 
     $scope.addMessage = function (e) {
         if (e.keyCode != 13) return;
@@ -45,18 +49,16 @@ function AppendZero(input) {
     return input;
 }
 
-function RevertArray(arrIn){
+function RevertArray(arrayIn){
     
     debugger
     
     var arrOut = [];
-    for(var int=arrIn.length; i>0; i++){
-        arrOut.push(arrIn[i-1]);
+    for(var int=arrayIn.length; i>0; i++){
+        arrOut.push(arrayIn[i-1]);
         
     }
     
-    
-    
-    return arrOut;
+        return arrOut;
     
 }
