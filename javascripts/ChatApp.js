@@ -10,12 +10,13 @@ function MyController($scope, $firebase) {
     var proxy = new Firebase("https://fdn-phuongnm4.firebaseio.com");
 
     $scope.disableName = false;
-    $scope.messages = $firebase(proxy);
+    var data = $firebase(proxy);
     
-    var arrayIn = $.map($scope.messages, function(value, index) {
+    var arrayIn = $.map(data, function(value, index) {
         return [value];
     });
 
+    $scope.messages = RevertArray(arrayIn);
 
     $scope.addMessage = function (e) {
         if (e.keyCode != 13) return;
