@@ -943,7 +943,7 @@ textarea {
 
 .nameText {
     display: inline-block;
-    color: #ffeb9b;
+    color: #ffcc00;
     margin-right: .5em;
 }
 
@@ -961,5 +961,5 @@ textarea {
 
     .back-to-top:hover {
         cursor: pointer;
-        color:#ffeb9b;
+        color:#ffcc00;
     }

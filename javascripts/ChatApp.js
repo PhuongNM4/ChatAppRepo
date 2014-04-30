@@ -30,7 +30,8 @@ function MyController($scope, $firebase) {
 
     angular.element(document).ready(function () {
         var offset = 220;
-        var duration = 500;
+        var duration = 300;
+
         jQuery(window).scroll(function () {
             if (jQuery(this).scrollTop() > offset) {
                 jQuery('.back-to-top').fadeIn(duration);
