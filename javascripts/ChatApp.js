@@ -73,7 +73,7 @@ function MyController($scope, $firebase) {
 
 function GetDateTimeNow() {
     var date = new Date();
-    return AppendZero(date.getHours()) + ":" + AppendZero(date.getMinutes()) + "...." + AppendZero(date.getDate()) + "-" + AppendZero((date.getMonth() + 1)) + "-" + (date.getYear() + 1900);
+    return AppendZero(date.getHours()) + ":" + AppendZero(date.getMinutes()) + "  " + AppendZero(date.getDate()) + "-" + AppendZero((date.getMonth() + 1)) + "-" + (date.getYear() + 1900);
 }
 
 function AppendZero(input) {
