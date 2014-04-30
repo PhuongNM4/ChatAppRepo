@@ -27,6 +27,7 @@ angular.module('myApp', ['firebase'])
     });
 
 function MyController($scope, $firebase) {
+
     angular.element(document).ready(function () {
         var offset = 220;
         var duration = 500;
@@ -48,7 +49,7 @@ function MyController($scope, $firebase) {
     $scope.showId = false;
     $scope.disableName = false;
     $scope.messages = $firebase(proxy);
-
+    
     $scope.addMessage = function (e) {
 
         if (e.keyCode != 13) return;
