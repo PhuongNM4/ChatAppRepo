@@ -869,11 +869,17 @@ section {
 }
 
 /*phuong stype*/
+body {
+    font-size: 90%;
+    font-family: Calibri,Tahoma,Verdana,sans-serif;
+}
+
 
 .smalltext {
-    font-size: smaller;
+    font-size: 80%;
     display: inline-block;
-    margin-left: 4em;
+    margin-left: 1.5em;
+    color: #ccc;
 }
 
 .centerblock {
@@ -891,20 +897,20 @@ section {
 .textbox {
     border: 1px solid #434343;
     display: block;
-    border-radius: .5em;
+    border-radius: 1em;
     outline: none;
     background-color: inherit;
     color: inherit;
-    padding: .3em 1em;
+    padding: .5em 1em;
     font-size: 90%;
     margin: .3em 1em;
 }
 
 textarea {
-    width: 245px;
+    width: 90%;
+    margin: 1em auto;
     vertical-align: top;
     word-wrap: break-word;
-    height: 145px;
     resize: none;
 }
 
@@ -921,3 +927,39 @@ textarea {
     border-radius: .5em;
     opacity: 0.8;
 }
+
+.messageDiv {
+    display: block;
+    margin-top: 1em;
+}
+
+.messageText {
+    display: inline-block;
+    border-radius: 1em;
+    border: 1px solid #434343;
+    font-size: 100%;
+    padding: .5em 1.5em;
+}
+
+.nameText {
+    display: inline-block;
+    color: #ffeb9b;
+    margin-right: .5em;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2em;
+    right: .5em;
+    border-radius: .5em;
+    text-decoration: none;
+    border: 1px solid #434343;
+    font-size: 80%;
+    padding: 1em;
+    display: none;
+}
+
+    .back-to-top:hover {
+        cursor: pointer;
+        color:#ffeb9b;
+    }
