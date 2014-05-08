@@ -1,0 +1,10 @@
+<a href="#/new" class="pull-right">new Block</a>
+
+<div ng-repeat="b in blocks | orderByPriority" class="row">
+    <a href="#/view/{{b.$id}}" ng-bind-template="{{b.title}}"></a>- <span ng-bind-template="{{b.tag}}"></span>
+</div>
+
+
+
+
+
