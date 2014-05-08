@@ -1,0 +1,68 @@
+<h1>Block Details</h1>
+
+<style>
+    textarea.codeBlock
+    {
+        display: block;
+        width: 100%;
+        border-radius: 4px;
+        padding: 9.5px;
+        font-size: 13px;
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #c7254e;
+        white-space: nowrap;
+        background-color: #f9f2f4;
+        line-height: 1.42857143;
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        min-height: 200px;
+    }
+
+    pre, textarea
+    {
+        overflow: auto;
+        min-height: 100px;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .form-row
+    {
+        display: block;
+        margin-bottom: .5em;
+    }
+
+    .label-120
+    {
+        display: inline-block;
+        width: 120px;
+    }
+</style>
+
+<form name="blockForm">
+    <p>
+        <label ng-show="block.$remove">
+            <input type="checkbox" ng-model="editMode">Edit Mode
+        </label>
+    </p>
+    <span class="form-row">
+        <span class="label-120">Description</span>
+        <input type="text" ng-model="block.title" placeholder="Title" ng-disabled="!editMode" required focus-me="editMode" />
+    </span>
+    <span class="label-120">Tags</span>
+    <span bind-html-unsafe="block.tag | spitTags" ng-show="!editMode"></span>
+    <input type="text" ng-model="block.tag" placeholder="Tags" ng-disabled="!editMode" /><br />
+
+    <pre ng-bind-template="{{block.content}}" ng-show="!editMode"></pre>
+
+    <textarea class="codeBlock" ng-model="block.content" placeholder="Content" ng-show="editMode" required>
+    </textarea>
+
+    <br />
+
+    <div class="pull-right">
+        <a href="#/" class="btn" ng-show="editMode">Cancel</a>
+        <input type="button" ng-click="saveBlock()" ng-disabled="blockForm.$invalid" value="Save" ng-show="editMode" class="btn btn-primary" />
+        <button ng-click="destroy()" ng-show="block.$remove && editMode" class="btn btn-danger">Delete</button>
+    </div>
+</form>
